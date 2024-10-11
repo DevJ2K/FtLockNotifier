@@ -8,7 +8,7 @@ with open("config.json", "r") as f:
 	config = json.load(f)
 
 async def main():
-	url = "http://127.0.0.1:8000/"
+	url = "https://forty-two-helper-6ec37292ad42.herokuapp.com/"
 	params = {
 		'user_id': config['user_id']
 	}
