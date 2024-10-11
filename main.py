@@ -6,8 +6,14 @@ from datetime import datetime
 import requests
 import json
 
-with open("config.json", "r") as f:
-	config = json.load(f)
+DEV_MODE = False
+
+if DEV_MODE == True:
+	with open(".config.json", "r") as f:
+		config = json.load(f)
+else:
+	with open("config.json", "r") as f:
+		config = json.load(f)
 
 async def main():
 	url = "https://forty-two-helper-6ec37292ad42.herokuapp.com/"
