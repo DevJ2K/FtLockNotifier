@@ -2,18 +2,18 @@
 
 import subprocess
 import asyncio
-from datetime import datetime
 import requests
 import json
+import os
 
 DEV_MODE = False
 
-if DEV_MODE == True:
-	with open(".config.json", "r") as f:
-		config = json.load(f)
-else:
-	with open("config.json", "r") as f:
-		config = json.load(f)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+config_path = os.path.join(base_dir, ".config.json" if DEV_MODE else "config.json")
+
+with open(config_path, "r") as f:
+	config = json.load(f)
 
 async def main():
 	url = "https://forty-two-helper-6ec37292ad42.herokuapp.com/"
